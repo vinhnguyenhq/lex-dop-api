@@ -29,8 +29,3 @@ DELIMITER ;
 /**Drop StoreProcedure**/
 CALL sp_GetEmployee();
 /******************************************************************/
-
-
-
-
-

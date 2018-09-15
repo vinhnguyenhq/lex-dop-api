@@ -16,4 +16,4 @@ LEX DOP API
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/vinhnguyenhq/lex-dop-api/blob/master/README.md) file for details

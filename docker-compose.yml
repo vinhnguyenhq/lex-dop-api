@@ -1,10 +1,11 @@
 version: '2'
 
 services:
-  security:
+  api:
+    container_name: lex_dop_api_graphql
     build: ./api
     ports:
-      - '8080:8080'
+      - '80:8080'
     depends_on:
       - db
     environment:
@@ -12,6 +13,7 @@ services:
     volumes:
       - ./api/src:/app/api
   db:
+    container_name: lex_dop_api_mysql
     ports:
       - '3306:3306'
     build: ./database

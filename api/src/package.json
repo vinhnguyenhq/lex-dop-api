@@ -1,7 +1,7 @@
 {
-  "name": "docker_web_app",
+  "name": "lex_dop_api",
   "version": "1.0.0",
-  "description": "Node.js on Docker",
+  "description": "lex_dop_api",
   "author": "nhquocvinh@gmail.com",
   "main": "server.js",
   "scripts": {
