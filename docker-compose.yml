@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  security:
+    build: ./api
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=db
+    volumes:
+      - ./api/src:/app/api
+  db:
+    ports:
+      - '3306:3306'
+    build: ./database
