@@ -1,17 +1,33 @@
 version: '2'
 
 services:
-  security:
+  api:
+    container_name: lex_dop_api_graphql
     build: ./api
     ports:
-      - '8080:8080'
-    depends_on:
+      - '8000:80'
+    links:
       - db
     environment:
       - DATABASE_HOST=db
     volumes:
       - ./api/src:/app/api
+    networks:
+      - front-tier
+      - back-tier
   db:
+    container_name: lex_dop_api_mysql
+    build: ./database
+    volumes:
+      - db-lex-dop-api:/var/lib/mysql:rw
     ports:
       - '3306:3306'
-    build: ./database
+    networks:
+      - back-tier
+
+volumes:
+  db-lex-dop-api:
+
+networks:
+  front-tier:
+  back-tier:
