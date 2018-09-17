@@ -2,23 +2,25 @@
 
 const express = require('express');
 
-// Constants
-const PORT = 8080;
+const PORT = 80;
 const HOST = '0.0.0.0';
 
-// App
 const app = express();
 
-// app.get('/', (req, res) => {
-//   res.send('Hello world change st\n');
-// });
+app.get('/version', (req, res, next) => {
+  res.status(202).send({
+    status: 'SUCCESS',
+    message: 'lex-dop-api version',
+    data: '1.0.2'
+  });
+});
 
 var database = require('./config/database');
 var dbHandler = new database();
 var connection = dbHandler.createConnection();
 
-app.get('/', function(req, res, next) {
-  connection.query('CALL sp_GetEmployee();', function(error, result, fields) {
+app.get('/', (req, res, next) => {
+  connection.query('CALL sp_GetEmployee();', (error, result, fields) => {
     if (error) throw error;
 
     if (result[0].length == 0) {
